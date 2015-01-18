@@ -1,0 +1,45 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item" ui-sref="userhome.schoolfellows">
+          <i class="icon ion-ios7-people-outline"></i>
+          Schoolfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+
+<ion-content has-bouncing="true" style="margin-top: 68px;" ng-controller="mobileNum">
+	<div class="list list-inset">
+		<legend style="margin-bottom: 10px;"> <i class="icon ion-iphone" style="margin-right: 8px;"></i>Add your mobile number</legend>
+		<p>Adding a mobile number will make it easier for your friends to find you through your mobile number.</p>
+	<!--<label class="item item-input item-select" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+    <div class="input-label" style="color:  #aaa;">
+    	Your Mobile Carrier
+    </div>
+    <select ng-model="class">
+      <option>Mobilink</option>
+      <option>Telenor</option>
+      <option>Ufone</option>
+      <option>Warid Telecom</option>
+      <option>ZonG Pakistan</option>
+    </select>
+  </label>-->
+  <form ng-submit="saveNum()">
+  <label class="item item-input" style="border-radius: 5px;">
+    <input type="tel" placeholder="Your Mobile Number" ng-model="mobilenum">
+  </label>
+      <input type="submit" class="button buttondefault btn-block buttonmargin" value="Add Mobile Number">
+  </form>
+	</div>
+</ion-content>

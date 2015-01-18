@@ -1,0 +1,33 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item" ui-sref="userhome.schoolfellows">
+          <i class="icon ion-ios7-people-outline"></i>
+          Schoolfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content has-bouncing="true">
+
+<div class="list" style="margin-top: 95px;">
+  <center>
+    <img src="{{profile}}" style="margin-top: 15px;">
+    <h1>Add a profile picture!</h1>
+    <p>A profile picture makes your account be you.</p>
+   	<div  style="margin-left: 10px; margin-right: 10px;">
+  		<button class="button buttondefault btn-block" ng-click="change()">Take a photo</button>
+  		<button class="button buttondefault btn-block buttondefault-green btn-block">Choose a photo from gallery</button>
+  	</div>
+   </center>
+</div>

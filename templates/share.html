@@ -1,0 +1,39 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.school({id: null})">
+          <i class="icon ion-ios7-people-outline"></i>
+          My School
+        </a>
+        <a class="tab-item" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content has-bouncing="true" ng-controller="schoolCtrl">
+  
+<div class="item item-text-wrap" style="overflow: auto; padding-bottom: 5px;">
+<div>
+
+  <div class="item item-text-wrap" style="padding-bottom: 5px;">
+  <div class="item-avatar" style="padding-left: 50px; width: 100%">
+    <img ng-src="{{prof}}" style="margin-top: 5px; margin-bottom: 0px;">
+     <div class="bubble" style="float: none; margin-bottom: 5px; margin-top: 10px;">
+      {{share}}
+    </div>
+    <p ng-if="identity==false">Posted By <b>{{byname}}</b> | {{wheneng}}</p>
+    <p ng-if="identity==true">Posted <b>Anonmously</b>| {{wheneng}}</p>
+  </div>
+  </div>
+</div>
+</div>
+</ion-content>
+

@@ -1,0 +1,45 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.school({id: null})">
+          <i class="icon ion-ios7-people-outline"></i>
+          My School
+        </a>
+        <a class="tab-item" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content has-bouncing="true" ng-controller="SchoolfellowCtrl">
+  
+<div class="list" style="margin-top: 95px;">
+  <div class="item item-divider" style="font-weight: normal; padding: 6px; font-size: 15px; background: transparent;">
+    People who are in your school
+  </div>
+
+  <div ng-show="loading==true" style="margin-top: 25px;">
+    <center>
+      <h1 style="margin-bottom: 0px; font-size: 140px;"><i class="icon ion-ios7-people"></i></h1>
+      <h2 style="margin-top: 0px;">Loading your Schoolfellows</h2>
+    </center>
+  </div>
+<div ng-show="loading==false" ng-hide="checkIfBlocked(classfellow.id)">
+    <div ng-repeat='schoolfellow in schoolFellows'>
+    <a class="item item-avatar" href="#" ng-hide="schoolfellow.id==userId" ui-sref="userhome.profile({id: {{schoolfellow.id}}})">
+      <img src="http://ionicframework.com/img/docs/venkman.jpg">
+      <h2>{{schoolfellow.fname}} {{schoolfellow.lname}}</h2>
+      <p style="color: green">Online</p>
+    </a>
+    </div>
+</div>
+</div>
+</ion-content>
+

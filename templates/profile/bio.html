@@ -1,0 +1,32 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item" ui-sref="userhome.schoolfellows">
+          <i class="icon ion-ios7-people-outline"></i>
+          Schoolfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+    <ion-content has-bouncing="true" style="margin-top: 68px;" ng-controller="bio">
+	<div class="list list-inset">
+		<legend style="margin-bottom: 10px;"> <i class="icon ion-ios7-paper-outline" style="margin-right: 8px;"></i>Write a sentence about yourself.</legend>
+		<p>Writing a small bio or a sentence about yourself tells people about you. You can write about anything. What you like most, What you hate and your hobbies.</p>
+		<form ng-submit="saveBio()">
+		 <label class="item item-input" style="border-radius: 5px;">
+		<textarea style="font-size: 14px; resize: none;" rows="3" placeholder="Write a small bio. If tony stark was here, he would write his bio as 'A genius, billionaire, playboy philanthropist'." ng-model="bio"></textarea>
+</label>
+		<input type="submit" class="button buttondefault btn-block buttonmargin" value="Save Bio">
+		</form>
+	</div>
+</ion-content>

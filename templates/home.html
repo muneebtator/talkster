@@ -1,0 +1,155 @@
+  <style type="text/css">
+  .card, .list-inset{
+    margin: 65px 10px;
+  }
+</style>
+<div class="bar bar-header theme">
+    <h1 class="title white logofont" style="text-align: left; font-size: 30px;">Talkster</h1>
+</div>
+
+
+<ion-content has-bouncing="true">
+<div ng-controller="homeCtrl">
+  <div ng-show="loggedin==true" style="margin-top: 54px;">
+    <center>
+      <h1 class="ion-loading-c" data-animation="true" style="margin-bottom: 0px;"></h1>
+      <h2>Logging you in</h2>
+      <h3>Wait..</h3>
+    </center>
+  </div>
+  <center style="margin-top: 34px;" ng-show="start==true">
+    <img src="img/icons/message.png" class="inlineblock" style="margin-right: 5px;">
+    <h3 class="nopaddingandmargin">Hipster Reinvents chatting.</h3>
+    <p style="margin-top: 2px; font-size: 16px; margin-bottom: 0px;">Hipster let's you voice chat with your friends.</p>
+    <p style="margin: 20px; margin-top: 1px; font-size: 16px; margin-bottom: 10px;">Hipster is opened for popular consumption at the city school, Dera Ismail khan branch.</p>
+
+    <div class="button buttondefault" ng-click="signInStart()">Sign in</div>
+    <div class="button buttondefault" ng-click="signUpStart()">Sign up</div><br>
+    <p style="margin-top: 15px;"><a ui-sref="userhome">Learn more</a></p>
+  </center>
+
+  <div id="signin" ng-show="signin==true">
+    <div class="list list-inset">
+      <legend><i class="icon ion-log-in"></i> Sign in</legend>
+      <form ng-submit="signIn()">
+      <label class="item item-input" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+        <input type="email" placeholder="Email" ng-model="signinemail">
+      </label>
+      <label class="item item-input" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+        <input type="password" placeholder="Password" ng-model="signinpassword">
+      </label>
+<div ng-show="processing==false">
+<input type="submit" class="button buttondefault btn-block buttonmargin" value="Sign in">
+<button class="buttonerror button-small" style="line-height: 30px;">I forgot my password</button>
+</div>
+</form>
+    <div  ng-show="processing==true">
+      <center style="margin-top: 14px;">
+      <h1 class="ion-loading-c" data-animation="true" style="margin-bottom: 0px;"></h1>
+          <h3 style="margin-top: 0px;">Logging you in.</h3>
+          </center>
+        </div>
+    </div>
+
+  </div>
+
+  <div id="signup" ng-show="signup==true">
+    <div class="list list-inset" style="margin-top: 58px;">
+    <form ng-submit="signUp()">
+      <legend style="margin-bottom: 10px;"><i class="icon ion-log-in"></i> Sign up</legend>
+      <label class="item item-input" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+        <input type="text" placeholder="First Name" ng-model="fname">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Last Name" ng-model="lname">
+      </label>
+      <label class="item item-input">
+        <input type="email" placeholder="Email" ng-model="email">
+      </label>
+       <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="password">
+      </label>
+        <label class="item item-input item-select">
+    <div class="input-label" style="color:  #aaa;">
+      Gender
+    </div>
+    <select ng-model="gender">
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </label>
+
+   <label class="item item-input item-select" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+    <div class="input-label" style="color:  #aaa;">
+      School
+    </div>
+    <select>
+      <option selected>The City School, Dera Ismail Khan</option>
+    </select>
+  </label>
+  <input type="submit" class="button buttondefault btn-block buttonmargin" data-ng-disabled="signUp1Done" value="Sign up">
+  </form>
+<p><small>Hipster is opened for conumption at the city school dera ismail khan, If you are not a student at this school then your account will be blocked.</small></p>
+</div>
+
+  </div>
+  <div id="selectClassStep" ng-show="selectClass==true">
+  <div ng-show="done==false">
+        <div class="list list-inset">
+      <legend><i class="icon ion-log-in"></i> Select Grade & Relationship status.</legend>
+       <label class="item item-input item-select" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+    <div class="input-label" style="color:  #aaa;">
+      Grade/Class
+    </div>
+    <select ng-model="class">
+      <option>Junior 6th</option>
+      <option>P1 - Class 7th</option>
+      <option>P2 - Class 8th</option>
+      <option>P3 - Class 9th</option>
+      <option>Senior 1 - Class 10th O Level</option>
+      <option>Senior 2 - Class 11th O Level</option>
+      <option>Matric - Class 10th</option>
+      <option>Matric - Class 11th</option>
+    </select>
+  </label>
+
+   <label class="item item-input item-select" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+    <div class="input-label" style="color:  #aaa;">
+      Relationship Status
+    </div>
+    <select ng-model="relationship">
+      <option>Single</option>
+      <option>In a relationship</option>
+      <option>Looking for someone</option>
+      <option>It is Complicated</option>
+    </select>
+  </label>
+        <div class="button buttondefault btn-block buttonmargin" ng-click="step2Complete()">Go</div>
+
+    </div>
+  </div>
+  </div>
+
+    <div ng-show="done==true">
+    <div class="list list-inset">
+    <center>
+    <h1 class="ion-loading-c" data-animation="true" style="margin-bottom: 0px;"></h1>
+    <h1 style="margin-top: 0px;">Creating account..</h1>
+    </center>
+    </div>
+  </div>
+
+  <div ng-show="prof==true">
+    <center>
+    <img src="{{profile}}" style="margin-top: 15px;">
+    <h1>Add a profile picture!</h1>
+    <p>A profile picture makes your account be you.</p>
+    <button class="button button-outline button-positive">Take a picture</button>
+    <button class="button button-outline button-positive">Choose a picture from gallery</button>
+
+    </center>
+  </div>
+
+</div>
+</ion-content>
+

@@ -1,0 +1,44 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item" ui-sref="userhome.schoolfellows">
+          <i class="icon ion-ios7-people-outline"></i>
+          Schoolfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content has-bouncing="true" ng-controller="relationshipCtrl">
+
+<div class="list" style="margin-top: 95px;">
+  <div class="item item-divider" style="font-weight: normal; padding: 6px; font-size: 15px; background: transparent;">
+    Select your new relationship.
+  </div>
+
+   <label class="item item-input item-select" style="border-radius: 5px; margin: 10px;">
+    <div class="input-label" style="color:  #aaa;">
+      Relationship Status
+    </div>
+    <select ng-model="relationship">
+      <option>Single</option>
+      <option>In a relationship</option>
+      <option>Looking for someone</option>
+      <option>It is Complicated</option>
+    </select>
+  </label>
+  <div  style="margin-left: 10px; margin-right: 10px;">
+  <div class="button buttondefault btn-block" ng-click="change()">Change relationship status</div>
+  </div>
+    </div>
+</div>
+</div>

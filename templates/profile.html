@@ -1,0 +1,99 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item" ui-sref="userhome.school({id: null})">
+          <i class="icon ion-ios7-people-outline"></i>
+          My School
+        </a>
+        <a class="tab-item active" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content class="content padding has-header" has-bouncing="true" style="margin-top: 50px; padding-top: 0px; padding-left: 0px; padding-right: 0px;" ng-controller="ProfileCtrl">
+  <div class="userheader">
+    <center>
+    <img class="profilepicture" src="http://ionicframework.com/img/docs/venkman.jpg" style="margin-top: 20px;">
+      <h3 style="margin-top: 8px; margin-bottom: 0px;">{{profileData.fname}} {{profileData.lname}} </h3>
+      <p style="margin-left: 8px; margin-right: 8px;">{{profileData.bio}}</p>
+    </center>
+  </div>
+
+  <div class="card" style="margin: 0px;">
+  <div class="item item-text-wrap">
+    <center ng-show="isThisUser==false">
+      <button class="button buttondefault buttondefault-green">Sent a message</button>
+      <button class="button buttonerror" ng-click="block();">Block this person</button>
+    </center>
+    <center ng-show="isThisUser==true">
+      <button class="button buttondefault buttondefault-green" ui-sref="userhome.settings">Account Settings</button>
+      <button class="button buttonerror" ng-click="logout()">Logout</button>
+    </center>
+  </div> 
+</div>
+<div class="list">
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-ios7-email-outline"></i>
+    {{profileData.email}}
+  </a>
+
+  <a class="item item-icon-left item-icon-right" href="#">
+    <i class="icon ion-iphone"></i>
+    {{profileData.mobilenum}}
+    <i class="icon ion-ios7-telephone-outline" ng-show="nomob==false"></i>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-ios7-home-outline"></i>
+    {{profileData.branch}}
+  </a>
+
+  <a class="item item-icon-left item-icon-right" href="#">
+    <i class="icon ion-ios7-people-outline"></i>
+    {{profileData.school}}
+    <i class="icon ion-ios7-arrow-right"></i>
+  </a>
+
+  <a class="item item-icon-left item-icon-right" ng-click="showClassfellows();">
+    <i class="icon ion-ios7-star-outline"></i>
+    {{profileData.class}}
+    <i class="icon ion-ios7-arrow-right"></i>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-ios7-heart-outline"></i>
+    {{profileData.relationship}}
+  </a>
+
+</div>
+
+<div ng-show="isThisUser==true">
+<div class="card" ng-show="profileComplete==false">
+  <div class="item item-divider" style="background: white;">
+    Complete your profile
+  </div>
+  <a href="#" class="item item-icon-left" ng-show="mobileNumberDone==false" ui-sref="userhome.mobilenum">
+    <i class="icon ion-iphone"></i>
+    Enter your mobile number
+  </a>
+   <!--<a href="#" class="item item-icon-left">
+    <i class="icon ion-ios7-calendar-outline"></i>
+    When is your birthday?
+  </a>-->
+  <a href="#" class="item item-icon-left" ng-show="bio==false" ui-sref="userhome.bio">
+    <i class="icon ion-ios7-paper-outline"></i>
+    Write a sentence about yourself.
+  </a>
+</div>
+</div>
+
+</ion-content>

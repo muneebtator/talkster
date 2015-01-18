@@ -1,0 +1,73 @@
+<div class="tabs-striped tabs-top tabs-background-positive tabs-positive" ng-controller="tabs">
+      <div class="tabs">
+        <a class="tab-item" ui-sref="userhome.chats">
+          <i class="icon ion-ios7-chatboxes-outline"></i>
+         My Chats
+        </a>
+        <a class="tab-item" ui-sref="userhome.classfellows">
+          <i class="icon ion-ios7-star-outline"></i>
+          Classfellows
+        </a>
+        <a class="tab-item active" ui-sref="userhome.school({id: null})">
+          <i class="icon ion-ios7-people-outline"></i>
+          My School
+        </a>
+        <a class="tab-item" ui-sref="userhome.profile({id: {{userId}}})">
+          <i class="icon ion-ios7-person-outline"></i>
+          My Profile
+        </a>
+      </div>
+    </div>
+<ion-content has-bouncing="true" ng-controller="sharecon">
+  
+<div class="list" style="margin-top: 95px;">
+  <div class="item item-divider" style="font-weight: normal; padding: 6px; font-size: 15px; background: transparent;">
+    {{schoolName}}
+  </div>
+
+
+<div class="item item-text-wrap" style="overflow: auto; padding-bottom: 5px;">
+<div class="item-avatar" style="padding-left: 50px; width: 100%">
+    <img src="http://ionicframework.com/img/docs/mcfly.jpg" style="margin-top: 5px;">
+    <form ng-submit="sharePost()">
+     <label class="item item-input" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+    <textarea style="resize: none;" height="8px" placeholder="Share something with your school." ng-model="share"></textarea><br>
+    </label>
+       <li class="item item-toggle" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; width: 100%;">
+          Hide my identity
+        <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="hideidentity">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+    </li>
+    <input type="submit" class="button buttondefault buttondefault-green button-small" style="line-height: 30px; float: right; margin-top: 5px;" value="Share">
+    </form>
+
+  </div>
+ <!--   <button class="button buttondefault" style="height: 30px; line-height: 10px; min-height: 0px;">Check people who are this school</button>-->
+  </div>
+    <div ng-show="loading==true" style="margin-top: 25px;">
+    <center>
+      <h1 style="margin-bottom: 0px; font-size: 140px;"><i class="icon ion-ios7-compose-outline"></i></h1>
+      <h2 style="margin-top: 0px;">Loading things shared by people.</h2>
+    </center>
+  </div>
+<div ng-show="loading==false">
+
+  <div class="item item-text-wrap" ng-repeat='share in test' ng-hide="checkIfBlocked(share.by)" style="padding-bottom: 5px;">
+  <div class="item-avatar" style="padding-left: 50px; width: 100%">
+    <img ng-src="share.prof" style="margin-top: 5px; margin-bottom: 0px;">
+     <div class="bubble" style="float: none; margin-bottom: 5px; margin-top: 10px;">
+      {{share.share}}
+    </div>
+
+    <p ng-if="share.identity==false">Posted By <b>{{share.byname}}</b> | {{share.wheneng}} || <a ng-click="reply({{share.byname}}, {{share.share}}, {{share.shareid}}, {{share.share.identity}}, {{share.wheneng}}, {{share.by}}, {{share.prof}})">Reply</a></p>
+    <p ng-if="share.identity==true">Posted <b>Anonmously</b>| {{share.wheneng}}</p>
+  </div>
+  </div>
+</div>
+</div>
+</ion-content>
+
